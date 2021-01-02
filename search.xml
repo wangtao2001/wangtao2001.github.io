@@ -21,6 +21,10 @@
 <h4 id="冒泡排序">1.冒泡排序</h4>
 <h4 id="快速排序">2.快速排序</h4>
 ]]></content>
+      <tags>
+        <tag>算法</tag>
+        <tag>排序</tag>
+      </tags>
   </entry>
   <entry>
     <title>数据结构与算法——动态规划</title>
@@ -67,5 +71,9 @@
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">//初始化 base case</span></span><br><span class="line">dp[<span class="number">0</span>][<span class="number">0</span>][...] = base</span><br><span class="line"><span class="comment">// 进行状态转移</span></span><br><span class="line"><span class="keyword">for</span> 状态<span class="number">1</span> in 状态<span class="number">1</span>的所有取值：</span><br><span class="line">    <span class="keyword">for</span> 状态<span class="number">2</span> in 状态<span class="number">2</span>的所有取值：</span><br><span class="line">        <span class="keyword">for</span> ...</span><br><span class="line">            dp[状态<span class="number">1</span>][状态<span class="number">2</span>][...] = 求最值(选择<span class="number">1</span>，选择<span class="number">2.</span>..)</span><br></pre></td></tr></table></figure>
 <p>另外初始化和边界情况同样重要。</p>
 ]]></content>
+      <tags>
+        <tag>算法</tag>
+        <tag>LeetCode</tag>
+      </tags>
   </entry>
 </search>
