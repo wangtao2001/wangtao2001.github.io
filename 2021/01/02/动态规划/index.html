@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>数据结构与算法——动态规划 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="动态规划动态规划算法是通过拆分问题，定义问题状态和状态之间的关系，使得问题能够以递推（或者说分治）的方式去解决。动态规划过程是：每次决策依赖于当前状态，又随即引起状态的转移。一个决策序列就是在变化的状态中产生出来的。 动态规划多用于求最值。 求最值的基本思想就是穷举，但是穷举不代表计算到每一个细节，因为穷举过程中往往会遇到「重叠子问题」，可以使用备忘录或dp表记录已经求解过的问题在下次遇到时直接使">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构与算法——动态规划">
+<meta property="og:url" content="http://example.com/2021/01/02/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="动态规划动态规划算法是通过拆分问题，定义问题状态和状态之间的关系，使得问题能够以递推（或者说分治）的方式去解决。动态规划过程是：每次决策依赖于当前状态，又随即引起状态的转移。一个决策序列就是在变化的状态中产生出来的。 动态规划多用于求最值。 求最值的基本思想就是穷举，但是穷举不代表计算到每一个细节，因为穷举过程中往往会遇到「重叠子问题」，可以使用备忘录或dp表记录已经求解过的问题在下次遇到时直接使">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-01-02T06:12:12.304Z">
+<meta property="article:modified_time" content="2021-01-02T06:36:31.855Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-动态规划" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/01/02/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="article-date">
+  <time class="dt-published" datetime="2021-01-02T06:12:12.304Z" itemprop="datePublished">2021-01-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      数据结构与算法——动态规划
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><p><code>动态规划算法是通过拆分问题，定义问题状态和状态之间的关系，使得问题能够以递推（或者说分治）的方式去解决。动态规划过程是：每次决策依赖于当前状态，又随即引起状态的转移。一个决策序列就是在变化的状态中产生出来的。</code></p>
+<p><strong>动态规划多用于求最值。</strong></p>
+<p>求最值的基本思想就是穷举，但是穷举不代表计算到每一个细节，因为穷举过程中往往会遇到<strong>「重叠子问题」</strong>，可以使用<strong>备忘录</strong>或<em>dp</em>表记录已经求解过的问题在下次遇到时直接使用。<br>而且，动态规划问题一定会具备<strong>「最优子结构」</strong>，也就是通过子问题的最值可以推导出更大规模的最值。<br><strong>「无后效性」</strong>是指阶段的状态一旦确定，则此后过程的演变不再受此前各种状态及决策的影响。<br>另外如何沿着正确的路线穷举也是一个问题，它依赖于<strong>「状态转移方程」</strong>。</p>
+<h3 id="斐波拉契数列"><a href="#斐波拉契数列" class="headerlink" title="斐波拉契数列"></a>斐波拉契数列</h3><h4 id="1-完全暴力递归"><a href="#1-完全暴力递归" class="headerlink" title="1.完全暴力递归"></a>1.完全暴力递归</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span>(<span class="params">n</span>):</span></span><br><span class="line">	<span class="keyword">if</span> n==<span class="number">1</span> <span class="keyword">or</span> n==<span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> fib(n-<span class="number">1</span>)+fib(n-<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<p>每一个<code>n</code>节点下又包含两个子节点，显然二叉树节点总数为指数级别，时间复杂度为$ O(2^n) $<br>显然导致效率低下的一个重要原因是很多数字在被重复计算，即存在<strong>「重叠子问题」</strong>。</p>
+<h4 id="2-基于备忘录的递归"><a href="#2-基于备忘录的递归" class="headerlink" title="2.基于备忘录的递归"></a>2.基于备忘录的递归</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span>(<span class="params">n</span>):</span></span><br><span class="line">    hashmap = &#123;&#125;</span><br><span class="line">    <span class="keyword">if</span> n==<span class="number">1</span> <span class="keyword">or</span> n==<span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        it = hashmap.get(n,<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> it:</span><br><span class="line">            <span class="built_in">next</span> = fib(n-<span class="number">1</span>)+fib(n-<span class="number">2</span>)</span><br><span class="line">            hashmap[n] = <span class="built_in">next</span></span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">next</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> it</span><br></pre></td></tr></table></figure>
+<p>这种情况下从<code>n</code>到<code>1</code>每一个节点只需要计算一次，时间复杂度简化为$ O(n) $<br>只不过这种方法叫仍是<strong>「自顶向下」</strong>的，而动态规划叫是<strong>「自底向上」</strong>的。这里的自顶向下是指，计算<code>fib(n)</code>就必须先计算<code>fib(n-1)</code> 和<code>fib(n-2)</code>。而自底向上是从<code>fib(1) fib(2)</code>计算直到<code>fib(n)</code>，所以动态规划一般都脱离了递归，而是由循环迭代完成计算。</p>
+<h4 id="3-基于dp数组"><a href="#3-基于dp数组" class="headerlink" title="3.基于dp数组"></a>3.基于<em>dp</em>数组</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span>(<span class="params">n</span>):</span></span><br><span class="line">	dp = [<span class="number">1</span>,<span class="number">1</span>]</span><br><span class="line">  	<span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>,n):</span><br><span class="line">   		dp.append(dp[i-<span class="number">1</span>]+dp[i-<span class="number">2</span>])</span><br><span class="line">  	<span class="keyword">return</span> dp[n-<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<p>当然在此例中不需要一整个数组来保存所有值，只需要两个变量记录当前值和前一个值，即<strong>「状态压缩」</strong>。对于一个二维<em>dp</em>表，如果计算<code>dp[i][j]</code>需要的都是相邻的状态，就可以使用<strong>「状态压缩」</strong>将二维数组转换为一维，相应的复杂度从$O(n^2)$降为$O(n)$。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span>(<span class="params">n</span>):</span></span><br><span class="line">    <span class="keyword">if</span> n==<span class="number">1</span> <span class="keyword">or</span> n==<span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        f1,f2 = <span class="number">1</span>,<span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>,n+<span class="number">1</span>):</span><br><span class="line">            f1,f2 = f2,f1+f2</span><br><span class="line">        <span class="keyword">return</span> f2</span><br></pre></td></tr></table></figure>
+<p>给出这个问题结构的数学表达形式，也就是<strong>「状态转移方程」</strong>：</p>
+<p>​                                                                                $f(n)=\left\{\begin{array}{l}1, n=1,2 \\ f(n-1)+f(n-2), n&gt;2\end{array}\right.$</p>
+<p>可以发现，无论是那种算法都是围绕这个方程式的不同表现形式。但是这个例子没有涉及到<strong>「最优子结构」</strong>，因为这个例子只是单纯的求值，并没有涉及到选择的问题。</p>
+<h3 id="凑零钱问题"><a href="#凑零钱问题" class="headerlink" title="凑零钱问题"></a>凑零钱问题</h3><p>问题描述：<code>k</code> 种面值的硬币，面值分别为 <code>c1, c2 ... ck</code>，每种硬币的数量无限，总金额 <code>amount</code>，问<strong>最少</strong>需要几枚硬币凑出这个金额，如果不可能凑出，算法返回 -1 ：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">coinChange</span>(<span class="params">coins: List[<span class="built_in">int</span>], amount: <span class="built_in">int</span></span>)</span></span><br></pre></td></tr></table></figure><br>首先，这个问题是动态规划问题，因为它具有「最优子结构」的。<strong>要符合「最优子结构」，子问题间必须互相独立</strong>。</p>
+<h4 id="1-暴力递归"><a href="#1-暴力递归" class="headerlink" title="1.暴力递归"></a>1.暴力递归</h4><p>依据以下步骤来解决这个问题：</p>
+<h5 id="1-确定base-case"><a href="#1-确定base-case" class="headerlink" title="1.确定base case"></a>1.确定<em>base case</em></h5><p>当目标金额<code>amount</code>为0时返回0，算法结束。</p>
+<h5 id="2-确定「状态」，即原问题和子问题中的变量"><a href="#2-确定「状态」，即原问题和子问题中的变量" class="headerlink" title="2.确定「状态」，即原问题和子问题中的变量"></a>2.确定「状态」，即原问题和子问题中的变量</h5><p>也就是金额<code>amount</code>，它会向<em>base case</em>不断靠近。</p>
+<h5 id="3-确定「选择」，也就是导致「状态」产生变化的行为"><a href="#3-确定「选择」，也就是导致「状态」产生变化的行为" class="headerlink" title="3.确定「选择」，也就是导致「状态」产生变化的行为"></a>3.确定「选择」，也就是导致「状态」产生变化的行为</h5><p>这里的选择即硬币的面值，一旦选定，它就会使<code>amount</code>减少</p>
+<h5 id="4-明确dp函数-数组的定义"><a href="#4-明确dp函数-数组的定义" class="headerlink" title="4.明确dp函数/数组的定义"></a>4.<strong>明确<code>dp</code>函数/数组的定义</strong></h5><p>这里若使用自顶向下的解法，会有一个递归的 <em>dp</em> 函数，目标就是返回当前<code>amount</code>下最少的硬币数量。</p>
+<h5 id="5-给出状态转移方程"><a href="#5-给出状态转移方程" class="headerlink" title="5.给出状态转移方程"></a>5.给出状态转移方程</h5><p>​                                                                 $dp(amount)=\left\{\begin{array}{l}-1, \text {amount}<0 \\ 0, \text {amount}=0 \\ \min \{d p(\text {amount}-\operatorname{coin})+1 \mid \operatorname{coin} \in \operatorname{coins}\}, \text {amount}>0\end{array}\right.$</p>
+<p>对这个状态方程做一点解释：在每一轮中，我们有<code>k</code>种选择，每一种选择对应一个剩余金额<code>amounnt-coin</code>，要想让总数量最少，只需要让<code>amounnt-coin</code>下的数量最少，最少数量=上一次最少数量+1即可。让<code>amounnt-coin</code>下的数量最少，再次调用此函数即可。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dp</span>(<span class="params">amount</span>):</span></span><br><span class="line">    <span class="keyword">if</span> amount == <span class="number">0</span>: <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">if</span> amount == <span class="number">1</span>: <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    res = <span class="built_in">float</span>(<span class="string">&#x27;INF&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> coin <span class="keyword">in</span> coins:</span><br><span class="line">        remaining = amount-coin</span><br><span class="line">        <span class="keyword">if</span> remaining == -<span class="number">1</span>: <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">else</span>: res = <span class="built_in">min</span>(res,<span class="number">1</span>+remaining)</span><br><span class="line">    <span class="keyword">return</span> res <span class="keyword">if</span> res != <span class="built_in">float</span>(<span class="string">&#x27;INF&#x27;</span>) <span class="keyword">else</span> -<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-基于备忘录的递归-1"><a href="#2-基于备忘录的递归-1" class="headerlink" title="2.基于备忘录的递归"></a>2.基于备忘录的递归</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dp</span>(<span class="params">amount</span>):</span></span><br><span class="line">    hashmap = &#123;&#125;</span><br><span class="line">    <span class="keyword">if</span> amount <span class="keyword">in</span> hashmap: <span class="keyword">return</span> hashmap[amount]</span><br><span class="line">    <span class="keyword">if</span> amount == <span class="number">0</span>: <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">if</span> amount == <span class="number">1</span>: <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    res = <span class="built_in">float</span>(<span class="string">&#x27;INF&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> coin <span class="keyword">in</span> coins:</span><br><span class="line">        remaining = amount-coin</span><br><span class="line">        <span class="keyword">if</span> remaining == -<span class="number">1</span>: <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">else</span>: res = <span class="built_in">min</span>(res,<span class="number">1</span>+remaining)</span><br><span class="line">    hashmap[amount] = res <span class="keyword">if</span> res != <span class="built_in">float</span>(<span class="string">&#x27;INF&#x27;</span>) <span class="keyword">else</span> -<span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> hashmap[amount]</span><br></pre></td></tr></table></figure>
+<h4 id="3-基于dp数组-1"><a href="#3-基于dp数组-1" class="headerlink" title="3.基于dp数组"></a>3.基于<em>dp</em>数组</h4><p>当然，我们也可以自底向上使用 <em>dp</em>数组来消除重叠子问题。<code>dp</code>数组的作用是存储从0到<code>amount</code>时各需要硬币的最少数，对于一个具体的<code>amount</code>来说，有<code>k</code>种选择，每一种选择对应一个剩余金额<code>amounnt-coin</code>，直接在列表中找到<code>amounnt-coin</code>对应的最少数量，此时最少数量=上一次最少数量+1即可。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span>(<span class="params">amount</span>):</span></span><br><span class="line">    dp = [i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(amount+<span class="number">1</span>)]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> dp:</span><br><span class="line">        <span class="keyword">for</span> coin <span class="keyword">in</span> coins:</span><br><span class="line">            <span class="keyword">if</span> (i-coin)&lt;<span class="number">0</span>: <span class="keyword">continue</span></span><br><span class="line">            dp[i] = <span class="built_in">min</span>(dp[i],dp[i-coin]+<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span> <span class="keyword">if</span> (dp[amount]==amount) <span class="keyword">else</span> dp[amount]</span><br></pre></td></tr></table></figure>
+<p>可以看到，动态规划的代码框架为：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化 base case</span></span><br><span class="line">dp[<span class="number">0</span>][<span class="number">0</span>][...] = base</span><br><span class="line"><span class="comment">// 进行状态转移</span></span><br><span class="line"><span class="keyword">for</span> 状态<span class="number">1</span> in 状态<span class="number">1</span>的所有取值：</span><br><span class="line">    <span class="keyword">for</span> 状态<span class="number">2</span> in 状态<span class="number">2</span>的所有取值：</span><br><span class="line">        <span class="keyword">for</span> ...</span><br><span class="line">            dp[状态<span class="number">1</span>][状态<span class="number">2</span>][...] = 求最值(选择<span class="number">1</span>，选择<span class="number">2.</span>..)</span><br></pre></td></tr></table></figure>
+<p>另外初始化和边界情况同样重要。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/01/02/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" data-id="ckjfc0nay00014gln92qydefm" data-title="数据结构与算法——动态规划" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/01/02/%E5%85%AB%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          数据结构与算法——八大排序算法
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/01/02/%E5%85%AB%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">数据结构与算法——八大排序算法</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/02/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">数据结构与算法——动态规划</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
