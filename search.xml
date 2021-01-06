@@ -101,36 +101,40 @@
   <entry>
     <title>自然常数e是怎么来的？</title>
     <url>/2021/01/04/%E8%87%AA%E7%84%B6%E5%B8%B8%E6%95%B0e/</url>
-    <content><![CDATA[<p>$e$ 有时被称为自然常数（Natural constant），是一个约等于 2.71828182845904523536……的无理数。</p>
+    <content><![CDATA[<p><span class="math inline">\(e\)</span> 有时被称为自然常数（Natural constant），是一个约等于 2.71828182845904523536……的无理数。</p>
 <p>这样一个看起来好像毫无规律的数为什么会被冠以「自然」之称呢？它又是如何被发现的呢？</p>
-<h3 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h3><p>说起$e$，我们会很自然的想起另一个无理数$\pi$,e 和圆周率$\pi$都是超越数,</p>
-<p>$\pi$的几何含义是圆的周长与直径之比，可以通过 <strong>正多边形逼近</strong>。</p>
+<h3 id="section">1.</h3>
+<p>说起<span class="math inline">\(e\)</span>，我们会很自然的想起另一个无理数<span class="math inline">\(\pi\)</span>,e 和圆周率<span class="math inline">\(\pi\)</span>都是超越数,</p>
+<p><span class="math inline">\(\pi\)</span>的几何含义是圆的周长与直径之比，可以通过 <strong>正多边形逼近</strong>。</p>
 <p>设多边形中心到一边端点的长度为1/2，边数为n，</p>
-<p>则$\pi = \lim _{n \rightarrow +\infty}\sin(\frac{360^\circ}{2n})*n$</p>
-<p>那么$e$是否也有如此直观的表示方法呢？</p>
-<h3 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h3><p>首先表示自然底数的符号$e$来源于瑞士数学和物理学家<strong>欧拉</strong>(Euler)的首字母。</p>
+<p>则<span class="math inline">\(\pi = \lim _{n \rightarrow +\infty}\sin(\frac{360^\circ}{2n})*n\)</span></p>
+<p>那么<span class="math inline">\(e\)</span>是否也有如此直观的表示方法呢？</p>
+<h3 id="section-1">2.</h3>
+<p>首先表示自然底数的符号<span class="math inline">\(e\)</span>来源于瑞士数学和物理学家<strong>欧拉</strong>(Euler)的首字母。</p>
 <p>但实际上，第一个发现这个常数的，并非欧拉本人，而是<strong>雅可比·伯努利</strong>（Jacob Bernoulli）。</p>
-<p>他通过观察<strong>复利</strong>现象得到了$e$</p>
+<p>他通过观察<strong>复利</strong>现象得到了<span class="math inline">\(e\)</span></p>
 <p><code>复利：即利息也可以作为本金继续获得利息</code></p>
-<p>假设银行利率为$100\%$，结算周期为1年，那么1年后就可以拿到本金的2倍，即$(1+1)^1$，</p>
-<p>如果年利率为$50\%$，结算周期为半年，1年后可以拿到多少本金呢？这好像没什么不同，但是请记住，你半年前获得的利息，也可以拿来计算利息了，如此1年后就应该是本金的$(1+\frac{1}{2})^2$，</p>
-<p>所以当总年利率为$100\%$时，计算周期为$\frac{1}{n}$年，1年后可以得到$(1+\frac{1}{n} )^n $倍，当$n$不断扩大，这个值趋向于一个特定的数，我们称之为自然常数，即$\lim_{n \to \infty} (1+\frac{1}{n} )^n=e$</p>
-<h3 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h3><p>虽然我们了解了计算$e$的式子，可是这个式子或者说这个数为什么会那么特殊呢，</p>
-<p>$e$其实在微积分中也有相应的来源。</p>
-<p>给出$f(x)=a^x$</p>
-<p>我们知道这个函数在$(-\infty,+\infty)$上是连续的，接下来我们尝试求导，按定义于是有：</p>
-<p>$\frac{d}{d x} a^{x}=\lim _{\Delta x \rightarrow 0} \frac{a^{x+\Delta x}-a^{x}}{\Delta x}=a^{x} \lim _{\Delta x \rightarrow 0} \frac{a^{\Delta x}-1}{\Delta x}=a^x\cdot M(a)$</p>
-<p>但是我们并不知道$M(a)$这个式子如何求解，假设有一个数$e$，使得$M(e)$为1，那么$\frac{d}{d x} e^{x}=e^x$，我们也就可以可以依靠$e$来求解$a$了。</p>
-<p>设$e^c=a$,那么$(a^x)’=(e^{cx})’=c(e^{cx})’=c\cdot e^{cx}=c\cdot a^x$</p>
-<p>我们将$c$表示为$c=\log_e a$,就可以得到$(a^x)’=\log_e a\cdot a^x=\ln a\cdot a^x$</p>
+<p>假设银行利率为<span class="math inline">\(100\%\)</span>，结算周期为1年，那么1年后就可以拿到本金的2倍，即<span class="math inline">\((1+1)^1\)</span>，</p>
+<p>如果年利率为<span class="math inline">\(50\%\)</span>，结算周期为半年，1年后可以拿到多少本金呢？这好像没什么不同，但是请记住，你半年前获得的利息，也可以拿来计算利息了，如此1年后就应该是本金的<span class="math inline">\((1+\frac{1}{2})^2\)</span>，</p>
+<p>所以当总年利率为<span class="math inline">\(100\%\)</span>时，计算周期为<span class="math inline">\(\frac{1}{n}\)</span>年，1年后可以得到$(1+ )^n <span class="math inline">\(倍，当\)</span>n<span class="math inline">\(不断扩大，这个值趋向于一个特定的数，我们称之为自然常数，即\)</span>_{n } (1+ )^n=e$</p>
+<h3 id="section-2">3.</h3>
+<p>虽然我们了解了计算<span class="math inline">\(e\)</span>的式子，可是这个式子或者说这个数为什么会那么特殊呢，</p>
+<p><span class="math inline">\(e\)</span>其实在微积分中也有相应的来源。</p>
+<p>给出<span class="math inline">\(f(x)=a^x\)</span></p>
+<p>我们知道这个函数在<span class="math inline">\((-\infty,+\infty)\)</span>上是连续的，接下来我们尝试求导，按定义于是有：</p>
+<p><span class="math inline">\(\frac{d}{d x} a^{x}=\lim _{\Delta x \rightarrow 0} \frac{a^{x+\Delta x}-a^{x}}{\Delta x}=a^{x} \lim _{\Delta x \rightarrow 0} \frac{a^{\Delta x}-1}{\Delta x}=a^x\cdot M(a)\)</span></p>
+<p>但是我们并不知道<span class="math inline">\(M(a)\)</span>这个式子如何求解，假设有一个数<span class="math inline">\(e\)</span>，使得<span class="math inline">\(M(e)\)</span>为1，那么<span class="math inline">\(\frac{d}{d x} e^{x}=e^x\)</span>，我们也就可以可以依靠<span class="math inline">\(e\)</span>来求解<span class="math inline">\(a\)</span>了。</p>
+<p>设<span class="math inline">\(e^c=a\)</span>,那么<span class="math inline">\((a^x)&#39;=(e^{cx})&#39;=c(e^{cx})&#39;=c\cdot e^{cx}=c\cdot a^x\)</span></p>
+<p>我们将<span class="math inline">\(c\)</span>表示为<span class="math inline">\(c=\log_e a\)</span>,就可以得到<span class="math inline">\((a^x)&#39;=\log_e a\cdot a^x=\ln a\cdot a^x\)</span></p>
 <p>这也是对数的来源。</p>
-<p>设$f(n)=(1+\frac{1}{n})^n$</p>
-<p>两边取$lnf(n)=ln[(1+\frac{1}{n})^n]=n\cdot ln(1+\frac{1}{n})$</p>
-<p>将$\frac{1}{n}$记作<script type="math/tex">\Delta x</script></p>
-<p>$\lim_{n  \rightarrow +\infty}\ln f(n)=\lim _{\Delta x \rightarrow 0} \ln f(n)=\lim _{\Delta x \rightarrow 0} n \ln \left(1+\frac{1}{n}\right)=\lim _{\Delta x \rightarrow 0} \frac{\ln \left(1+\frac{1}{n}\right)}{\frac{1}{n}}=\lim _{\Delta x \rightarrow 0} \frac{\ln (1+\Delta x)}{\Delta x}=\lim _{\Delta x \rightarrow 0} \frac{\ln (1+\Delta x)-\ln (1)}{\Delta x}=\ln ^{\prime}(1)=1$</p>
-<p>$\lim_{n  \rightarrow +\infty}\ln f(n)=\lim_{n  \rightarrow +\infty} e^{\ln f(n)}=e^{\lim_{n  \rightarrow +\infty}\ln f(n)}=e$</p>
-<p>$\lim_{n \to \infty} (1+\frac{1}{n} )^n=e$</p>
-<h3 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h3><p>所以<strong>其实自然对数$e$就是事物的增长极限。</strong>它通过$\lim_{n \to \infty} (1+\frac{1}{n} )^n=e$反映出来。</p>
+<p>设<span class="math inline">\(f(n)=(1+\frac{1}{n})^n\)</span></p>
+<p>两边取<span class="math inline">\(\ln f(n)=\ln[(1+\frac{1}{n})^n]=n\cdot \ln(1+\frac{1}{n})\)</span></p>
+<p>将<span class="math inline">\(\frac{1}{n}\)</span>记作<span class="math display">\[\Delta x\]</span></p>
+<p><span class="math inline">\(\lim_{n \rightarrow +\infty}\ln f(n)=\lim _{\Delta x \rightarrow 0} \ln f(n)=\lim _{\Delta x \rightarrow 0} n \ln \left(1+\frac{1}{n}\right)=\lim _{\Delta x \rightarrow 0} \frac{\ln \left(1+\frac{1}{n}\right)}{\frac{1}{n}}=\lim _{\Delta x \rightarrow 0} \frac{\ln (1+\Delta x)}{\Delta x}=\lim _{\Delta x \rightarrow 0} \frac{\ln (1+\Delta x)-\ln (1)}{\Delta x}=\ln ^{\prime}(1)=1\)</span></p>
+<p><span class="math inline">\(\lim_{n \rightarrow +\infty} f(n)=\lim_{n \rightarrow +\infty} e^{\ln f(n)}=e^{\lim_{n \rightarrow +\infty}\ln f(n)}=e\)</span></p>
+<p><span class="math inline">\(\lim_{n \to \infty} (1+\frac{1}{n} )^n=e\)</span></p>
+<h3 id="section-3">4.</h3>
+<p>所以<strong>其实自然对数<span class="math inline">\(e\)</span>就是事物的增长极限。</strong>它通过<span class="math inline">\(\lim_{n \to \infty} (1+\frac{1}{n} )^n=e\)</span>反映出来。</p>
 ]]></content>
       <tags>
         <tag>高等数学</tag>
