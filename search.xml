@@ -129,7 +129,7 @@
 <p>这也是对数的来源。</p>
 <p>设<span class="math inline">\(f(n)=(1+\frac{1}{n})^n\)</span></p>
 <p>两边取<span class="math inline">\(\ln f(n)=\ln[(1+\frac{1}{n})^n]=n\cdot \ln(1+\frac{1}{n})\)</span></p>
-<p>将<span class="math inline">\(\frac{1}{n}\)</span>记作<span class="math display">\[\Delta x\]</span></p>
+<p>将<span class="math inline">\(\frac{1}{n}\)</span>记作<span class="math inline">\(\Delta x\)</span></p>
 <p><span class="math inline">\(\lim_{n \rightarrow +\infty}\ln f(n)=\lim _{\Delta x \rightarrow 0} \ln f(n)=\lim _{\Delta x \rightarrow 0} n \ln \left(1+\frac{1}{n}\right)=\lim _{\Delta x \rightarrow 0} \frac{\ln \left(1+\frac{1}{n}\right)}{\frac{1}{n}}\)</span></p>
 <p>​ <span class="math inline">\(=\lim _{\Delta x \rightarrow 0} \frac{\ln (1+\Delta x)}{\Delta x}=\lim _{\Delta x \rightarrow 0} \frac{\ln (1+\Delta x)-\ln (1)}{\Delta x}=\ln ^{\prime}(1)=1\)</span></p>
 <p><span class="math inline">\(\lim_{n \rightarrow +\infty} f(n)=\lim_{n \rightarrow +\infty} e^{\ln f(n)}=e^{\lim_{n \rightarrow +\infty}\ln f(n)}=e\)</span></p>
