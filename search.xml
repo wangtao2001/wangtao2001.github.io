@@ -116,7 +116,7 @@
 <p><code>复利：即利息也可以作为本金继续获得利息</code></p>
 <p>假设银行利率为<span class="math inline">\(100\%\)</span>，结算周期为1年，那么1年后就可以拿到本金的2倍，即<span class="math inline">\((1+1)^1\)</span>，</p>
 <p>如果年利率为<span class="math inline">\(50\%\)</span>，结算周期为半年，1年后可以拿到多少本金呢？这好像没什么不同，但是请记住，你半年前获得的利息，也可以拿来计算利息了，如此1年后就应该是本金的<span class="math inline">\((1+\frac{1}{2})^2\)</span>，</p>
-<p>所以当总年利率为<span class="math inline">\(100\%\)</span>时，计算周期为<span class="math inline">\(\frac{1}{n}\)</span>年，1年后可以得到 $(1+ )^n <span class="math inline">\(倍，当\)</span>n$不断扩大，这个值趋向于一个特定的数，我们称之为自然常数，即 <span class="math inline">\(\lim_{n \to \infty} (1+\frac{1}{n} )^n=e\)</span></p>
+<p>所以当总年利率为<span class="math inline">\(100\%\)</span>时，计算周期为<span class="math inline">\(\frac{1}{n}\)</span>年，1年后可以得到 <span class="math inline">\((1+\frac{1}{n} )^n\)</span>倍，当<span class="math inline">\(n\)</span>不断扩大，这个值趋向于一个特定的数，我们称之为自然常数，即 <span class="math inline">\(\lim_{n \to \infty} (1+\frac{1}{n} )^n=e\)</span></p>
 <h3 id="section-2">3.</h3>
 <p>虽然我们了解了计算<span class="math inline">\(e\)</span>的式子，可是这个式子或者说这个数为什么会那么特殊呢，</p>
 <p><span class="math inline">\(e\)</span>其实在微积分中也有相应的来源。</p>
@@ -131,7 +131,7 @@
 <p>两边取<span class="math inline">\(\ln f(n)=\ln[(1+\frac{1}{n})^n]=n\cdot \ln(1+\frac{1}{n})\)</span></p>
 <p>将<span class="math inline">\(\frac{1}{n}\)</span>记作<span class="math display">\[\Delta x\]</span></p>
 <p><span class="math inline">\(\lim_{n \rightarrow +\infty}\ln f(n)=\lim _{\Delta x \rightarrow 0} \ln f(n)=\lim _{\Delta x \rightarrow 0} n \ln \left(1+\frac{1}{n}\right)=\lim _{\Delta x \rightarrow 0} \frac{\ln \left(1+\frac{1}{n}\right)}{\frac{1}{n}}\)</span></p>
-<p>​ $ =<em>{x } =</em>{x } =^{}(1)=1$</p>
+<p>​ <span class="math inline">\(=\lim _{\Delta x \rightarrow 0} \frac{\ln (1+\Delta x)}{\Delta x}=\lim _{\Delta x \rightarrow 0} \frac{\ln (1+\Delta x)-\ln (1)}{\Delta x}=\ln ^{\prime}(1)=1\)</span></p>
 <p><span class="math inline">\(\lim_{n \rightarrow +\infty} f(n)=\lim_{n \rightarrow +\infty} e^{\ln f(n)}=e^{\lim_{n \rightarrow +\infty}\ln f(n)}=e\)</span></p>
 <p><span class="math inline">\(\lim_{n \to \infty} (1+\frac{1}{n} )^n=e\)</span></p>
 <h3 id="section-3">4.</h3>
