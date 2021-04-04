@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-wangtao.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-wangtao.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="1    使用计算机求解问题1.1    开发（设计、编写）一个程序，通常是为了解决一类问题，程序每次执行时能够解决该问题的一个实例。 1.2    程序的开发过程：  需求分析（深入分析情况和细节，得到一个尽可能严格表述的问题表述）  数据组织和算法设计  编码  检查编译  调试测试（关键在于设计一套出色的测试用例）  维护   2    算法和算法设计2.1    问题是需要解决的一类具体需">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构与算法——绪论">
+<meta property="og:url" content="http://example.com/2021/04/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:site_name" content="王涛的博客">
+<meta property="og:description" content="1    使用计算机求解问题1.1    开发（设计、编写）一个程序，通常是为了解决一类问题，程序每次执行时能够解决该问题的一个实例。 1.2    程序的开发过程：  需求分析（深入分析情况和细节，得到一个尽可能严格表述的问题表述）  数据组织和算法设计  编码  检查编译  调试测试（关键在于设计一套出色的测试用例）  维护   2    算法和算法设计2.1    问题是需要解决的一类具体需">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic3.zhimg.com/v2-70fd95b38156cab69a006386a6164e96_r.jpg">
+<meta property="article:published_time" content="2021-04-04T05:14:48.838Z">
+<meta property="article:modified_time" content="2021-04-04T05:18:57.626Z">
+<meta property="article:author" content="wangtao.cpu@gmail.com">
+<meta property="article:tag" content="绪论">
+<meta property="article:tag" content="数据结构">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic3.zhimg.com/v2-70fd95b38156cab69a006386a6164e96_r.jpg">
+
+<link rel="canonical" href="http://example.com/2021/04/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>数据结构与算法——绪论 | 王涛的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">王涛的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/author-wangtao2001.png">
+      <meta itemprop="name" content="wangtao.cpu@gmail.com">
+      <meta itemprop="description" content="我们的征途是星辰大海">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王涛的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          数据结构与算法——绪论
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-04 13:14:48 / 修改时间：13:18:57" itemprop="dateCreated datePublished" datetime="2021-04-04T13:14:48+08:00">2021-04-04</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h5 id="1-使用计算机求解问题"><a href="#1-使用计算机求解问题" class="headerlink" title="1    使用计算机求解问题"></a>1    使用计算机求解问题</h5><p>1.1    开发（设计、编写）一个程序，通常是为了解决一类<strong>问题</strong>，程序每次执行时能够解决该问题的一个<strong>实例</strong>。</p>
+<p>1.2    程序的开发过程：</p>
+<ul>
+<li><p>需求分析（深入分析情况和细节，得到一个尽可能严格表述的问题表述）</p>
+</li>
+<li><p>数据组织和算法设计</p>
+</li>
+<li><p>编码</p>
+</li>
+<li><p>检查编译</p>
+</li>
+<li><p>调试测试（关键在于设计一套出色的测试用例）</p>
+</li>
+<li><p>维护</p>
+</li>
+</ul>
+<h5 id="2-算法和算法设计"><a href="#2-算法和算法设计" class="headerlink" title="2    算法和算法设计"></a>2    算法和算法设计</h5><p>2.1    问题是需要解决的一类具体需求，而问题实例是所属问题的一个具体例子。算法则是解决问题的计算过程的严格描述，是一系列解决问题的清晰指令。程序则是算法的<strong>实现</strong>。</p>
+<p>2.2    算法的性质：</p>
+<ul>
+<li><p>有穷性（算法描述应该由有限条指令或语句组成）</p>
+</li>
+<li><p>能行性（能够被设计成为具体的机械计算过程）</p>
+</li>
+<li><p>确定性（对于一个给定的初始数据，将产生一个唯一的确定的数据或输出结果）</p>
+</li>
+<li><p>终止性（算法产生的动作序列是有穷的）</p>
+</li>
+<li><p>输入输出（有明确的输入和输出）</p>
+</li>
+</ul>
+<p>2.3    算法的描述：采用自然语言描述、采用严格的形式化计发描述、采用<strong>伪代码</strong>描述。</p>
+<p>2.4    常见的算法设计模式：</p>
+<ul>
+<li>枚举法（利用计算机的速度优势）</li>
+<li>贪心法（首先尽可能做出部分解，再逐步扩充得到完整解）</li>
+<li>分治法（将复杂问题分解为相对简单的子问题，分而治之再组合）</li>
+<li>回溯法（逐步探索所有可能的选择和步骤，一旦遇到无法前进则退回到前面的步骤，这一过程称为<strong>回溯</strong>）</li>
+<li>动态规划法（在前面的步骤中收集信息，在后续步骤中动态选择最好的路径）</li>
+<li>分支界限法（在不断搜索过程中将无用的选择不断删除）</li>
+</ul>
+<p>2.5    算法的设计要求：正确性、可读性、健壮性、高效率与低存储量</p>
+<h5 id="3-算法代价和度量分析"><a href="#3-算法代价和度量分析" class="headerlink" title="3    算法代价和度量分析"></a>3    算法代价和度量分析</h5><p>3.1    在具体算法中，以其计数数值作为空间开销的基本度量，以其执行次数作为时间开销的基本度量。</p>
+<p>3.2    代价分析分为事前分析（复杂度分析）和事后分析（测量执行时间和空间开销）。</p>
+<p>3.3    复杂度分析的”大O记法”：对于单调的整数函数$f(n)$，如果存在一个整数函数$g(n)$和常数$c&gt;0$，使得对于充分大的n总有$f(n)&lt;=c \times g(n)$，就说函数$g(n)$是$f(n)$的一个渐近函数（忽略常量因子），记为$f(n)=O(g(n))$。</p>
+<p>3.4    常用复杂度：常量复杂度：$O(1)$、$O(log n)$、$O(n)$、$O(n logn)$、$O(n^{2})$、$O(2^{n})$</p>
+<p><img src='https://pic3.zhimg.com/v2-70fd95b38156cab69a006386a6164e96_r.jpg' height=200></p>
+<h5 id="4-数据结构"><a href="#4-数据结构" class="headerlink" title="4    数据结构"></a>4    数据结构</h5><p>4.1    一个具体的数据结构可以表达为一个二元组 $D=(E,R)$,$D$是某个数据集合的一个有穷子集，而$R\in E \times E$ 表示元素之间的某种关系。数据结构就是研究数据的<strong>逻辑结构</strong>和<strong>物理结构</strong>以及它们之间<strong>相互关系</strong>。</p>
+<p>4.2    逻辑结构，数据之间的相互关系：</p>
+<ul>
+<li>集合 结构中的数据元素除了同属于一种类型外，别无其它关系</li>
+<li>线性结构 数据元素之间一对一的关系</li>
+<li>树形结构 数据元素之间一对多的关系</li>
+<li>图状结构或网状结构 结构中的数据元素之间存在多对多的关系</li>
+</ul>
+<p>4.3    物理结构（存储结构），数据在计算机中的表示：</p>
+<ul>
+<li>顺序结构</li>
+<li>链式结构</li>
+<li>索引结构</li>
+<li>哈希结构</li>
+</ul>
+<p>4.3    数据的逻辑结构和物理结构是数据结构的两个密切相关的方面，同一逻辑结构可以对应不同的存储结构。算法的设计取决于数据的逻辑结构，而算法的实现依赖于指定的存储结构。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%BB%AA%E8%AE%BA/" rel="tag"># 绪论</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"># 数据结构</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/01/04/%E8%87%AA%E7%84%B6%E5%B8%B8%E6%95%B0e/" rel="prev" title="自然常数e是怎么来的？">
+      <i class="fa fa-chevron-left"></i> 自然常数e是怎么来的？
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E4%BD%BF%E7%94%A8%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%B1%82%E8%A7%A3%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">1    使用计算机求解问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E7%AE%97%E6%B3%95%E5%92%8C%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1"><span class="nav-number">2.</span> <span class="nav-text">2    算法和算法设计</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E7%AE%97%E6%B3%95%E4%BB%A3%E4%BB%B7%E5%92%8C%E5%BA%A6%E9%87%8F%E5%88%86%E6%9E%90"><span class="nav-number">3.</span> <span class="nav-text">3    算法代价和度量分析</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">4.</span> <span class="nav-text">4    数据结构</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="wangtao.cpu@gmail.com"
+      src="/images/author-wangtao2001.png">
+  <p class="site-author-name" itemprop="name">wangtao.cpu@gmail.com</p>
+  <div class="site-description" itemprop="description">我们的征途是星辰大海</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wangtao2001" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangtao2001" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wangtao.cpu@gmail.com" title="E-Mail → mailto:wangtao.cpu@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wangtao.cpu@gmail.com</span>
+</div>
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>-->
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
