@@ -378,4 +378,30 @@
         <tag>数据科学</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Python+Numpy数据分析04——数据存取</title>
+    <url>/2021/04/07/python+numpy04/</url>
+    <content><![CDATA[<h4 id="一二维数据的存取："><a href="#一二维数据的存取：" class="headerlink" title="一二维数据的存取："></a>一二维数据的存取：</h4><p>CSV(逗号分隔值)，是一种常见的文件格式，用来存储批量一二维数据。</p>
+<p>在numpy中，向csv文件写入数据和读出数据通过以下两个函数实现：</p>
+<pre><code>np.savetxt(frame,array,fmt=&quot;%.18e&quot;,delimiter=None)
+</code></pre><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = np.arange(<span class="number">100</span>).reshape(<span class="number">20</span>,<span class="number">5</span>)</span><br><span class="line">np.savetxt(<span class="string">&quot;a.csv&quot;</span>,a,fmt=<span class="string">&quot;%d&quot;</span>,delimiter=<span class="string">&quot;,&quot;</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>np.loadtxt(frame,dtype=np.float,delimiter=None,unpack=False)
+</code></pre><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">b= np.loadtxt(<span class="string">&quot;a.csv&quot;</span>,dtype=np.<span class="built_in">int</span>,delimiter=<span class="string">&#x27;,&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="多维数据的存取"><a href="#多维数据的存取" class="headerlink" title="多维数据的存取:"></a>多维数据的存取:</h4><p>在numpy中，写入和读出高维数据通过以下两个函数实现：</p>
+<pre><code>a.tofile(fname,sep=&#39;&#39;,format=&#39;%s&#39;)
+</code></pre><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = np.arange(<span class="number">100</span>).reshape(<span class="number">20</span>,<span class="number">5</span>)</span><br><span class="line">a.tofile(<span class="string">&quot;a.bat&quot;</span>,<span class="built_in">format</span>=<span class="string">&#x27;%d&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>np.fromfile(fname,dtype=np.float,count=-1,sep=&#39;&#39;)
+</code></pre><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">b = np.fromfile(<span class="string">&quot;a.bat&quot;</span>,dtype=np.<span class="built_in">int</span>,sep=<span class="string">&#x27;&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>但是通过此过程维度信息会丢失，仅会返回一维数据，故使用时需要备份维度信息即a.shape()</p>
+<h4 id="NumPy便捷文件存取："><a href="#NumPy便捷文件存取：" class="headerlink" title="NumPy便捷文件存取："></a>NumPy便捷文件存取：</h4><p>可以保存维度信息，但扩展名为.npy</p>
+<pre><code>np.save(frame,array)
+</code></pre><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;a = np.arange(<span class="number">100</span>).reshape((<span class="number">20</span>,<span class="number">5</span>))</span><br><span class="line">&gt;&gt;&gt;np.save(<span class="string">&quot;a.npy&quot;</span>,a)</span><br></pre></td></tr></table></figure>
+<pre><code>np.load(fname)
+</code></pre><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;b = np.load(<span class="string">&quot;a.np&quot;</span>)</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>numpy</tag>
+        <tag>数据科学</tag>
+      </tags>
+  </entry>
 </search>

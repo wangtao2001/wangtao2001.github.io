@@ -20,23 +20,22 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1    使用计算机求解问题1.1    开发（设计、编写）一个程序，通常是为了解决一类问题，程序每次执行时能够解决该问题的一个实例。 1.2    程序的开发过程：  需求分析（深入分析情况和细节，得到一个尽可能严格表述的问题表述）  数据组织和算法设计  编码  检查编译  调试测试（关键在于设计一套出色的测试用例）  维护   2    算法和算法设计2.1    问题是需要解决的一类具体需">
+  <meta name="description" content="一二维数据的存取：CSV(逗号分隔值)，是一种常见的文件格式，用来存储批量一二维数据。 在numpy中，向csv文件写入数据和读出数据通过以下两个函数实现： np.savetxt(frame,array,fmt&#x3D;&quot;%.18e&quot;,delimiter&#x3D;None) 12a &#x3D; np.arange(100).reshape(20,5)np.savetxt(&quot;a.csv&amp;quo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据结构与算法——绪论">
-<meta property="og:url" content="http://example.com/2021/04/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:title" content="Python+Numpy数据分析04——数据存取">
+<meta property="og:url" content="http://example.com/2021/04/07/python+numpy04/index.html">
 <meta property="og:site_name" content="王涛的博客">
-<meta property="og:description" content="1    使用计算机求解问题1.1    开发（设计、编写）一个程序，通常是为了解决一类问题，程序每次执行时能够解决该问题的一个实例。 1.2    程序的开发过程：  需求分析（深入分析情况和细节，得到一个尽可能严格表述的问题表述）  数据组织和算法设计  编码  检查编译  调试测试（关键在于设计一套出色的测试用例）  维护   2    算法和算法设计2.1    问题是需要解决的一类具体需">
+<meta property="og:description" content="一二维数据的存取：CSV(逗号分隔值)，是一种常见的文件格式，用来存储批量一二维数据。 在numpy中，向csv文件写入数据和读出数据通过以下两个函数实现： np.savetxt(frame,array,fmt&#x3D;&quot;%.18e&quot;,delimiter&#x3D;None) 12a &#x3D; np.arange(100).reshape(20,5)np.savetxt(&quot;a.csv&amp;quo">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://pic3.zhimg.com/v2-70fd95b38156cab69a006386a6164e96_r.jpg">
-<meta property="article:published_time" content="2021-04-04T05:14:48.838Z">
-<meta property="article:modified_time" content="2021-04-04T05:18:57.626Z">
+<meta property="article:published_time" content="2021-04-07T14:29:56.820Z">
+<meta property="article:modified_time" content="2021-04-07T14:31:00.509Z">
 <meta property="article:author" content="wangtao.cpu@gmail.com">
-<meta property="article:tag" content="绪论">
-<meta property="article:tag" content="数据结构">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="numpy">
+<meta property="article:tag" content="数据科学">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://pic3.zhimg.com/v2-70fd95b38156cab69a006386a6164e96_r.jpg">
 
-<link rel="canonical" href="http://example.com/2021/04/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
+<link rel="canonical" href="http://example.com/2021/04/07/python+numpy04/">
 
 
 <script id="page-configurations">
@@ -49,7 +48,7 @@
   };
 </script>
 
-  <title>数据结构与算法——绪论 | 王涛的博客</title>
+  <title>Python+Numpy数据分析04——数据存取 | 王涛的博客</title>
   
 
 
@@ -186,7 +185,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/07/python+numpy04/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/author-wangtao2001.png">
@@ -199,7 +198,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          数据结构与算法——绪论
+          Python+Numpy数据分析04——数据存取
         </h1>
 
         <div class="post-meta">
@@ -210,7 +209,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-04-04 13:14:48 / 修改时间：13:18:57" itemprop="dateCreated datePublished" datetime="2021-04-04T13:14:48+08:00">2021-04-04</time>
+              <time title="创建时间：2021-04-07 22:29:56 / 修改时间：22:31:00" itemprop="dateCreated datePublished" datetime="2021-04-07T22:29:56+08:00">2021-04-07</time>
             </span>
 
           
@@ -224,69 +223,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h5 id="1-使用计算机求解问题"><a href="#1-使用计算机求解问题" class="headerlink" title="1    使用计算机求解问题"></a>1    使用计算机求解问题</h5><p>1.1    开发（设计、编写）一个程序，通常是为了解决一类<strong>问题</strong>，程序每次执行时能够解决该问题的一个<strong>实例</strong>。</p>
-<p>1.2    程序的开发过程：</p>
-<ul>
-<li><p>需求分析（深入分析情况和细节，得到一个尽可能严格表述的问题表述）</p>
-</li>
-<li><p>数据组织和算法设计</p>
-</li>
-<li><p>编码</p>
-</li>
-<li><p>检查编译</p>
-</li>
-<li><p>调试测试（关键在于设计一套出色的测试用例）</p>
-</li>
-<li><p>维护</p>
-</li>
-</ul>
-<h5 id="2-算法和算法设计"><a href="#2-算法和算法设计" class="headerlink" title="2    算法和算法设计"></a>2    算法和算法设计</h5><p>2.1    问题是需要解决的一类具体需求，而问题实例是所属问题的一个具体例子。算法则是解决问题的计算过程的严格描述，是一系列解决问题的清晰指令。程序则是算法的<strong>实现</strong>。</p>
-<p>2.2    算法的性质：</p>
-<ul>
-<li><p>有穷性（算法描述应该由有限条指令或语句组成）</p>
-</li>
-<li><p>能行性（能够被设计成为具体的机械计算过程）</p>
-</li>
-<li><p>确定性（对于一个给定的初始数据，将产生一个唯一的确定的数据或输出结果）</p>
-</li>
-<li><p>终止性（算法产生的动作序列是有穷的）</p>
-</li>
-<li><p>输入输出（有明确的输入和输出）</p>
-</li>
-</ul>
-<p>2.3    算法的描述：采用自然语言描述、采用严格的形式化计发描述、采用<strong>伪代码</strong>描述。</p>
-<p>2.4    常见的算法设计模式：</p>
-<ul>
-<li>枚举法（利用计算机的速度优势）</li>
-<li>贪心法（首先尽可能做出部分解，再逐步扩充得到完整解）</li>
-<li>分治法（将复杂问题分解为相对简单的子问题，分而治之再组合）</li>
-<li>回溯法（逐步探索所有可能的选择和步骤，一旦遇到无法前进则退回到前面的步骤，这一过程称为<strong>回溯</strong>）</li>
-<li>动态规划法（在前面的步骤中收集信息，在后续步骤中动态选择最好的路径）</li>
-<li>分支界限法（在不断搜索过程中将无用的选择不断删除）</li>
-</ul>
-<p>2.5    算法的设计要求：正确性、可读性、健壮性、高效率与低存储量</p>
-<h5 id="3-算法代价和度量分析"><a href="#3-算法代价和度量分析" class="headerlink" title="3    算法代价和度量分析"></a>3    算法代价和度量分析</h5><p>3.1    在具体算法中，以其计数数值作为空间开销的基本度量，以其执行次数作为时间开销的基本度量。</p>
-<p>3.2    代价分析分为事前分析（复杂度分析）和事后分析（测量执行时间和空间开销）。</p>
-<p>3.3    复杂度分析的”大O记法”：对于单调的整数函数$f(n)$，如果存在一个整数函数$g(n)$和常数$c&gt;0$，使得对于充分大的n总有$f(n)&lt;=c \times g(n)$，就说函数$g(n)$是$f(n)$的一个渐近函数（忽略常量因子），记为$f(n)=O(g(n))$。</p>
-<p>3.4    常用复杂度：常量复杂度：$O(1)$、$O(log n)$、$O(n)$、$O(n logn)$、$O(n^{2})$、$O(2^{n})$</p>
-<p><img src='https://pic3.zhimg.com/v2-70fd95b38156cab69a006386a6164e96_r.jpg' height=200></p>
-<h5 id="4-数据结构"><a href="#4-数据结构" class="headerlink" title="4    数据结构"></a>4    数据结构</h5><p>4.1    一个具体的数据结构可以表达为一个二元组 $D=(E,R)$,$D$是某个数据集合的一个有穷子集，而$R\in E \times E$ 表示元素之间的某种关系。数据结构就是研究数据的<strong>逻辑结构</strong>和<strong>物理结构</strong>以及它们之间<strong>相互关系</strong>。</p>
-<p>4.2    逻辑结构，数据之间的相互关系：</p>
-<ul>
-<li>集合 结构中的数据元素除了同属于一种类型外，别无其它关系</li>
-<li>线性结构 数据元素之间一对一的关系</li>
-<li>树形结构 数据元素之间一对多的关系</li>
-<li>图状结构或网状结构 结构中的数据元素之间存在多对多的关系</li>
-</ul>
-<p>4.3    物理结构（存储结构），数据在计算机中的表示：</p>
-<ul>
-<li>顺序结构</li>
-<li>链式结构</li>
-<li>索引结构</li>
-<li>哈希结构</li>
-</ul>
-<p>4.3    数据的逻辑结构和物理结构是数据结构的两个密切相关的方面，同一逻辑结构可以对应不同的存储结构。算法的设计取决于数据的逻辑结构，而算法的实现依赖于指定的存储结构。</p>
-
+        <h4 id="一二维数据的存取："><a href="#一二维数据的存取：" class="headerlink" title="一二维数据的存取："></a>一二维数据的存取：</h4><p>CSV(逗号分隔值)，是一种常见的文件格式，用来存储批量一二维数据。</p>
+<p>在numpy中，向csv文件写入数据和读出数据通过以下两个函数实现：</p>
+<pre><code>np.savetxt(frame,array,fmt=&quot;%.18e&quot;,delimiter=None)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = np.arange(<span class="number">100</span>).reshape(<span class="number">20</span>,<span class="number">5</span>)</span><br><span class="line">np.savetxt(<span class="string">&quot;a.csv&quot;</span>,a,fmt=<span class="string">&quot;%d&quot;</span>,delimiter=<span class="string">&quot;,&quot;</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>np.loadtxt(frame,dtype=np.float,delimiter=None,unpack=False)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b= np.loadtxt(<span class="string">&quot;a.csv&quot;</span>,dtype=np.<span class="built_in">int</span>,delimiter=<span class="string">&#x27;,&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="多维数据的存取"><a href="#多维数据的存取" class="headerlink" title="多维数据的存取:"></a>多维数据的存取:</h4><p>在numpy中，写入和读出高维数据通过以下两个函数实现：</p>
+<pre><code>a.tofile(fname,sep=&#39;&#39;,format=&#39;%s&#39;)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = np.arange(<span class="number">100</span>).reshape(<span class="number">20</span>,<span class="number">5</span>)</span><br><span class="line">a.tofile(<span class="string">&quot;a.bat&quot;</span>,<span class="built_in">format</span>=<span class="string">&#x27;%d&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>np.fromfile(fname,dtype=np.float,count=-1,sep=&#39;&#39;)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b = np.fromfile(<span class="string">&quot;a.bat&quot;</span>,dtype=np.<span class="built_in">int</span>,sep=<span class="string">&#x27;&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>但是通过此过程维度信息会丢失，仅会返回一维数据，故使用时需要备份维度信息即a.shape()</p>
+<h4 id="NumPy便捷文件存取："><a href="#NumPy便捷文件存取：" class="headerlink" title="NumPy便捷文件存取："></a>NumPy便捷文件存取：</h4><p>可以保存维度信息，但扩展名为.npy</p>
+<pre><code>np.save(frame,array)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;a = np.arange(<span class="number">100</span>).reshape((<span class="number">20</span>,<span class="number">5</span>))</span><br><span class="line">&gt;&gt;&gt;np.save(<span class="string">&quot;a.npy&quot;</span>,a)</span><br></pre></td></tr></table></figure>
+<pre><code>np.load(fname)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;b = np.load(<span class="string">&quot;a.np&quot;</span>)</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -295,8 +248,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E7%BB%AA%E8%AE%BA/" rel="tag"># 绪论</a>
-              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"># 数据结构</a>
+              <a href="/tags/python/" rel="tag"># python</a>
+              <a href="/tags/numpy/" rel="tag"># numpy</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/" rel="tag"># 数据科学</a>
           </div>
 
         
@@ -305,13 +259,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/01/04/%E8%87%AA%E7%84%B6%E5%B8%B8%E6%95%B0e/" rel="prev" title="自然常数e是怎么来的？">
-      <i class="fa fa-chevron-left"></i> 自然常数e是怎么来的？
+    <a href="/2021/04/04/python+numpy03/" rel="prev" title="Python+Numpy数据分析03——数组运算">
+      <i class="fa fa-chevron-left"></i> Python+Numpy数据分析03——数组运算
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/04/04/python+numpy01/" rel="next" title="Python+Numpy数据分析01——数组创建和变换">
-      Python+Numpy数据分析01——数组创建和变换 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -370,7 +321,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E4%BD%BF%E7%94%A8%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%B1%82%E8%A7%A3%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">1    使用计算机求解问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E7%AE%97%E6%B3%95%E5%92%8C%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1"><span class="nav-number">2.</span> <span class="nav-text">2    算法和算法设计</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E7%AE%97%E6%B3%95%E4%BB%A3%E4%BB%B7%E5%92%8C%E5%BA%A6%E9%87%8F%E5%88%86%E6%9E%90"><span class="nav-number">3.</span> <span class="nav-text">3    算法代价和度量分析</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">4.</span> <span class="nav-text">4    数据结构</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E4%BA%8C%E7%BB%B4%E6%95%B0%E6%8D%AE%E7%9A%84%E5%AD%98%E5%8F%96%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">一二维数据的存取：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E7%BB%B4%E6%95%B0%E6%8D%AE%E7%9A%84%E5%AD%98%E5%8F%96"><span class="nav-number">2.</span> <span class="nav-text">多维数据的存取:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NumPy%E4%BE%BF%E6%8D%B7%E6%96%87%E4%BB%B6%E5%AD%98%E5%8F%96%EF%BC%9A"><span class="nav-number">3.</span> <span class="nav-text">NumPy便捷文件存取：</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
