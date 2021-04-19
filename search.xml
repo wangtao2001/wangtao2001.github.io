@@ -334,10 +334,6 @@
 <td style="text-align: left;">np.sign(a)</td>
 <td style="text-align: left;">计算数组各元素符号值：-1，0，1</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
 </tbody>
 </table>
 <h4 id="ndarray数组运算二元函数">ndarray数组运算二元函数：</h4>
