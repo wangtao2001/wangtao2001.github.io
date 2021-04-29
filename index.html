@@ -179,6 +179,120 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/29/Git%E4%B8%8EGithub/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/author-wangtao2001.png">
+      <meta itemprop="name" content="wangtao.cpu@gmail.com">
+      <meta itemprop="description" content="我们的征途是星辰大海">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王涛的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/29/Git%E4%B8%8EGithub/" class="post-title-link" itemprop="url">Git与Github的基本使用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-29 16:42:12 / 修改时间：16:43:47" itemprop="dateCreated datePublished" datetime="2021-04-29T16:42:12+08:00">2021-04-29</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Git是一款分布式版本控制系统。</p>
+<h4 id="设置用户名和电子邮件地址">1.设置用户名和电子邮件地址</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name  &quot;Yourname&quot;</span><br><span class="line">git config --global user.email &quot;email@example.com&quot;</span><br></pre></td></tr></table></figure>
+<p>global为全局配置，不加global仅为为当前项目进行配置</p>
+<p>查看用户名和电子邮件地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config user.name</span><br><span class="line">git config user.email</span><br></pre></td></tr></table></figure>
+<h4 id="获取版本库仓库">2.获取版本库(仓库)</h4>
+<p>创建本地仓库，该目录里的所有的文件都由Git进行管理和版本控制</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+<p>克隆远程仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone [url] ([directory])</span><br></pre></td></tr></table></figure>
+<h4 id="文件的四种状态">3.文件的四种状态</h4>
+<p>Untracked: 未跟踪，不参与版本控制</p>
+<p>Staged: 暂存状态</p>
+<p>Unmodified: 文件已经入库, 未修改, 即版本库中的文件快照内容与文件夹中完全一致</p>
+<p>Modified: 文件已修改</p>
+<p>查看文件状态</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status ([filename])    </span><br></pre></td></tr></table></figure>
+<p><img  src='https://images2017.cnblogs.com/blog/63651/201709/63651-20170909091456335-1787774607.jpg' width="400" height="400"></p>
+<h4 id="文件状态切换操作">4.文件状态切换操作</h4>
+<p>将Untracked/Modified文件添加至暂存区(切换Staged)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git add [filename] [filename2]      添加指定文件</span><br><span class="line">git add .                           添加当前目录所有文件</span><br><span class="line">git rm --cached [filename]          将文件返回为Untracked状态</span><br><span class="line">git reset HEAD [filename]			将文件返回为Modified状态</span><br></pre></td></tr></table></figure>
+<p>将暂存区的文件(Staged)提交至本地仓库(Committed/Unmodified)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git commit (-m [message])            message为本次提交的说明</span><br><span class="line">git commit -a (-m [message]）		为Unmodified文件跳过git add为所有文件提交</span><br></pre></td></tr></table></figure>
+<h4 id="查看提交历史">5.查看提交历史</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br></pre></td></tr></table></figure>
+<p>--oneline 选项来查看历史记录的简洁的版本</p>
+<h4 id="比较版本差异">6.比较版本差异</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git diff ([filename])                比较工作区与暂存区文件差异</span><br><span class="line">git diff --staged ([file])           比较暂存区和上一次提交的差异</span><br><span class="line">git diff [SHA-11] [SHA-12]           比较两次提交的差异</span><br><span class="line">git blame [filename]                 查看指定文件的修改记录</span><br><span class="line">git reset --soft HEAD^               撤销上一次提交</span><br></pre></td></tr></table></figure>
+<h4 id="版本回退">7.版本回退</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git reset [SHA-1]                   回退到指定版本</span><br><span class="line">git reset HEAD^                      回退所有文件到上一个版本或者使用HEAD~1  </span><br><span class="line">git reset HEAD^ [filename]           回退特定文件的版本到上一个版本</span><br></pre></td></tr></table></figure>
+<h4 id="文件管理">8.文件管理</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git rm [filename]                    将文件工作区中删除(如删除暂存区文件则使用-f参数)</span><br><span class="line">git mv [filename] [newfilename]      文件重命名</span><br></pre></td></tr></table></figure>
+<h4 id="分支管理">9.分支管理</h4>
+<p>创建分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch [branchname]              使用-d参数删除分支</span><br></pre></td></tr></table></figure>
+<p>切换分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout [branchname]            使用-b参数同时创建并切换</span><br></pre></td></tr></table></figure>
+<p>返回所有分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure>
+<p>将分支合并到当前分支上，合并并不仅仅是简单的文件添加、移除的操作，Git 也会合并修改。当手动修改冲突后，可以用 git add告诉 Git 文件冲突已经解决</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge [branchname]</span><br></pre></td></tr></table></figure>
+<h4 id="标签">10.标签</h4>
+<p>为暂存区的文件写标签并使用commit提交</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git tag                              查看已有标签</span><br><span class="line">git tag v1.0                         创建标签</span><br><span class="line">git tag -a v1.0 -m [message]         创建一个含附注的标签</span><br><span class="line">git tag -d v1.0                      删除标签</span><br></pre></td></tr></table></figure>
+<h4 id="与github远程仓库连接">11.与Github(远程仓库)连接</h4>
+<p>连接一个远程仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add [name] [url]          name一般使用origin</span><br></pre></td></tr></table></figure>
+<p>查看当前配置的有哪些远程仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote                          使用-v参数看到每个别名的实际链接地址</span><br></pre></td></tr></table></figure>
+<p>推送新分支至远程仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push [name] master              master可以是其他分支</span><br></pre></td></tr></table></figure>
+<p>删除与远程仓库的连接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote rm [name]</span><br></pre></td></tr></table></figure>
+<p>从远程仓库下载新分支与数据，紧接着可以使用分支合并</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch origin master              从origin的远程上拉取名为master的分支到本地分支origin&#x2F;master中</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/26/SQL/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1251,13 +1365,13 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
