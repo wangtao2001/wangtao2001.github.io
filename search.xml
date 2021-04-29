@@ -570,7 +570,6 @@
 <p>Modified: 文件已修改</p>
 <p>查看文件状态</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git status ([filename])    </span><br></pre></td></tr></table></figure>
-<p><img  src='https://images2017.cnblogs.com/blog/63651/201709/63651-20170909091456335-1787774607.jpg' width="400" height="400"></p>
 <h4 id="文件状态切换操作">4.文件状态切换操作</h4>
 <p>将Untracked/Modified文件添加至暂存区(切换Staged)</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add [filename] [filename2]      添加指定文件</span><br><span class="line">git add .                           添加当前目录所有文件</span><br><span class="line">git rm --cached [filename]          将文件返回为Untracked状态</span><br><span class="line">git reset HEAD [filename]			将文件返回为Modified状态</span><br></pre></td></tr></table></figure>
